@@ -1,7 +1,6 @@
-angular.module('starter.services', [])
+angular.module('Tutti.services', [])
 
 .factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
 
   var idCount = 0;
   var chats = [];
