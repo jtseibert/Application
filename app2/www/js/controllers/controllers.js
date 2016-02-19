@@ -10,7 +10,7 @@ angular.module('Tutti.controllers', [])
     Chats.remove(chat);
   };
   $scope.add = function() {
-    $state.transitionTo('tab.create-queue');
+    $state.go('tab.create-queue');
     Chats.add();
   };
 })
@@ -19,10 +19,17 @@ angular.module('Tutti.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('CreateQueueCtrl', function($scope, $stateParams, Chats) {})
+.controller('CreateQueueCtrl', function($scope, $stateParams, Chats) {
+
+    $scope.settings = {
+      settingOne: true,
+      settingTwo: true,
+      settingThree: true
+    };
+})
 
 .controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableStuff: true
+  $scope.services = {
+    soundCloud: true
   };
 });

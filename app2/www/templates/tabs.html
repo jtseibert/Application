@@ -16,9 +16,13 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab title="Create Queue" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/createQueue">
-    <ion-nav-view name="create-Queue"></ion-nav-view>
+  <ion-tab title="Streaming Services" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 
+  <!-- Create Queue Tab -->
+  <ion-tab title="Create Queue" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/createQueue" hidden="true">
+    <ion-nav-view name="create-Queue"></ion-nav-view>
+  </ion-tab>
 
 </ion-tabs>

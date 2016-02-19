@@ -61,7 +61,7 @@ angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
     }
   })
   .state('tab.create-queue', {
-    url: '/createQueue',
+    url: '/chats/createQueue',
     views: {
       'create-Queue': {
         templateUrl: 'templates/create-queue.html',
