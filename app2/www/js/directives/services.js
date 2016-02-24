@@ -1,31 +1,33 @@
 angular.module('Tutti.services', [])
 
-.factory('Chats', function() {
+.factory('Queues', function() {
 
   var idCount = 0;
-  var chats = [];
+  var queues = [];
 
   return {
     all: function() {
-      return chats;
+      return queues;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(queue) {
+      queues.splice(queues.indexOf(queue), 1);
       idCount--;
     },
-    add: function() {
-      chats.splice(chats.length, 0, {
+    add: function(one, two, three) {
+      queues.splice(queues.length, 0, {
         id: idCount,
         name: ('Queue '+(idCount+1)),
-        lastText: ('Setting '+(idCount+1)),
+        settingOne: one,
+        settingTwo: two,
+        settingThree: three,
         face: 'img/musicNote.jpg'
       });
       idCount++;
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(queueId) {
+      for (var i = 0; i < queues.length; i++) {
+        if (queues[i].id === parseInt(queueId)) {
+          return queues[i];
         }
       }
       return null;

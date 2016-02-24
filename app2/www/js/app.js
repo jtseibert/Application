@@ -33,21 +33,21 @@ angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
       }
     }
   })
-  .state('tab.chats', {
-    url: '/chats',
+  .state('tab.queues', {
+    url: '/queues',
     views: {
-      'tab-chats': {
-        templateUrl: 'templates/tab-chats.html',
-        controller: 'ChatsCtrl'
+      'tab-queues': {
+        templateUrl: 'templates/tab-queues.html',
+        controller: 'QueuesCtrl'
       }
     }
   })
-  .state('tab.chat-detail', {
-    url: '/chats/:chatId',
+  .state('tab.queue-detail', {
+    url: '/queues/:queueId',
     views: {
-      'tab-chats': {
-        templateUrl: 'templates/chat-detail.html',
-        controller: 'ChatDetailCtrl'
+      'tab-queues': {
+        templateUrl: 'templates/queue-detail.html',
+        controller: 'QueueDetailCtrl'
       }
     }
   })
@@ -60,8 +60,17 @@ angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
       }
     }
   })
+  .state('tab.queue-popup', {
+    url: '/queues/popup',
+    views: {
+      'popup': {
+        templateUrl: 'templates/popup.html',
+        controller: 'PopupCtrl'
+      }
+    }
+  })
   .state('tab.create-queue', {
-    url: '/chats/createQueue',
+    url: '/queues/createQueue',
     views: {
       'create-Queue': {
         templateUrl: 'templates/create-queue.html',
