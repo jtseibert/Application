@@ -1,4 +1,4 @@
-angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
+var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -16,7 +16,7 @@ angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
   });
 })
 
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$rootScopeProvider', '$urlRouterProvider', function($stateProvider, $rootScopeProvider, $urlRouterProvider) {
 
   $stateProvider
   .state('tab', {
@@ -57,15 +57,6 @@ angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
-      }
-    }
-  })
-  .state('tab.queue-popup', {
-    url: '/queues/popup',
-    views: {
-      'popup': {
-        templateUrl: 'templates/popup.html',
-        controller: 'PopupCtrl'
       }
     }
   })

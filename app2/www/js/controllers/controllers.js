@@ -2,16 +2,63 @@ angular.module('Tutti.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('QueuesCtrl', function($scope, $stateParams, $state, Queues) {
+.controller('QueuesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $timeout, Queues) {
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-$scope.queues = Queues.all();
-$scope.remove = function(queue) {
-  Queues.remove(queue);
-};
-$scope.create = function() {
-  $state.go('tab.create-queue');
-};
+  $scope.queues = Queues.all();
+  $scope.remove = function(queue) {
+    Queues.remove(queue);
+  };
+  $scope.create = function() {
+    $state.go('tab.create-queue');
+  };
+
+  //popup section
+  $scope.showPopup = function() {
+    $rootScope.data = {}
+
+    // An elaborate, custom popup
+    var myPopup = $ionicPopup.show({
+      template: '<input type="text" ng-model="data.newName">',
+      title: 'Enter Name for New Queue',
+      subTitle: 'Please use normal things',
+      scope: $rootScope,
+      buttons: [
+        { text: 'Cancel' },
+        {
+          text: '<b>Create</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            //don't allow the user to hit save unless there is a name entered
+            if ($scope.data.newName == undefined) {
+              e.preventDefault();
+            } else {
+              $state.go('tab.create-queue');
+              return $scope.data.newName;
+            }
+          }
+        },
+      ]
+    });
+    myPopup.then(function(res) {
+      console.log('Name Received!', res);
+    });
+  };
+
+  // A confirm dialog
+  // $scope.showConfirm = function() {
+  //   var confirmPopup = $ionicPopup.confirm({
+  //     title: 'Consume Ice Cream',
+  //     template: 'Are you sure you want to eat this ice cream?'
+  //   });
+  //   confirmPopup.then(function(res) {
+  //     if(res) {
+  //       console.log('You are sure');
+  //     } else {
+  //       console.log('You are not sure');
+  //     }
+  //   });
+  // };
 })
 
 .controller('QueueDetailCtrl', function($scope, $stateParams, Queues) {
@@ -30,57 +77,6 @@ $scope.create = function() {
     $state.go('tab.queues');
   };
 })
-
-.controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
-
- // Triggered on a button click, or some other target
- $scope.showPopup = function() {
-   $scope.data = {}
-
-   // An elaborate, custom popup
-   var myPopup = $ionicPopup.show({
-     template: '<input type="password" ng-model="data.wifi">',
-     title: 'Enter Wi-Fi Password',
-     subTitle: 'Please use normal things',
-     scope: $scope,
-     buttons: [
-     { text: 'Cancel' },
-     {
-       text: '<b>Save</b>',
-       type: 'button-positive',
-       onTap: function(e) {
-         if (!$scope.data.wifi) {
-             //don't allow the user to close unless he enters wifi password
-             e.preventDefault();
-           } else {
-             return $scope.data.wifi;
-           }
-         }
-       },
-       ]
-     });
-   myPopup.then(function(res) {
-     console.log('Tapped!', res);
-   });
-   $timeout(function() {
-      myPopup.close(); //close the popup after 3 seconds for some reason
-    }, 3000);
- };
-   // A confirm dialog
-   $scope.showConfirm = function() {
-     var confirmPopup = $ionicPopup.confirm({
-       title: 'Consume Ice Cream',
-       template: 'Are you sure you want to eat this ice cream?'
-     });
-     confirmPopup.then(function(res) {
-       if(res) {
-         console.log('You are sure');
-       } else {
-         console.log('You are not sure');
-       }
-     });
-   };
- })
 
 .controller('AccountCtrl', function($scope) {
   $scope.services = {
