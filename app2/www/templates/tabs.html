@@ -11,8 +11,13 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Queues Tab -->
-  <ion-tab title="Queues" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/queues">
+  <ion-tab title="PlayLists" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/queues">
     <ion-nav-view name="tab-queues"></ion-nav-view>
+  </ion-tab>
+
+<!-- Groups Tab -->
+  <ion-tab title="Groups" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/groups">
+    <ion-nav-view name="tab-groups"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
@@ -21,8 +26,13 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Create Queue Tab -->
-  <ion-tab title="Create Queue" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/createQueue" hidden="true">
+  <ion-tab title="Create PlayList" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/createQueue" hidden="true">
     <ion-nav-view name="create-Queue"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Create Group Tab -->
+  <ion-tab title="Create Group" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/createGroup" hidden="true">
+    <ion-nav-view name="create-Group"></ion-nav-view>
   </ion-tab>
 
 </ion-tabs>

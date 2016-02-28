@@ -42,6 +42,15 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
       }
     }
   })
+  .state('tab.groups', {
+    url: '/groups',
+    views: {
+      'tab-groups': {
+        templateUrl: 'templates/tab-groups.html',
+        controller: 'GroupsCtrl'
+      }
+    }
+  })
   .state('tab.queue-detail', {
     url: '/queues/:queueId',
     views: {
@@ -66,6 +75,15 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
       'create-Queue': {
         templateUrl: 'templates/create-queue.html',
         controller: 'CreateQueueCtrl'
+      }
+    }
+  })
+  .state('tab.create-group', {
+    url: '/groups/createGroup',
+    views: {
+      'create-Group': {
+        templateUrl: 'templates/create-group.html',
+        controller: 'CreateGroupCtrl'
       }
     }
   })
