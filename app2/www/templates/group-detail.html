@@ -1,0 +1,32 @@
+<ion-view view-title="{{group.name}}">
+  <ion-content class="padding">
+    <div style="text-align: center;">
+      <p>
+        Setting One: {{group.settingOne}}
+      </p>
+      <p>
+        Setting Two: {{group.settingTwo}}
+      </p>
+      <p>
+        Setting Three: {{group.settingThree}}
+      </p>
+    </div>
+    <div>
+      <ion-list>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="member in group.members" type="item-text-wrap">
+          <h2 style="text-align: center;">{{member}}</h2>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          <ion-option-button class="button-assertive" ng-click="remove(member)">
+            Remove
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <button class="button button-calm" style="position: middle;" ng-click="showPopup()">
+        <p style="color: white; font-weight: bold; font-size: 30px; margin-bottom: 5px;">Add Member</p>
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

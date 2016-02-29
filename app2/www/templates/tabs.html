@@ -5,24 +5,34 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
+  <!-- Now Playing Tab -->
+  <ion-tab title="Now Playing" icon-off="ion-ios-musical-notes" icon-on="ion-ios-musical-notes" href="#/tab/nowPlaying">
+    <ion-nav-view name="tab-now-playing"></ion-nav-view>
+  </ion-tab>
+
   <!-- Dashboard Tab -->
-  <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">
+  <ion-tab title="Browse" icon-off="ion-ios-search" icon-on="ion-ios-search-strong" href="#/tab/dash">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
   <!-- Queues Tab -->
-  <ion-tab title="PlayLists" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/queues">
+  <ion-tab title="PlayLists" icon-off="ion-ios-settings" icon-on="ion-ios-settings-strong" href="#/tab/queues">
     <ion-nav-view name="tab-queues"></ion-nav-view>
   </ion-tab>
 
 <!-- Groups Tab -->
-  <ion-tab title="Groups" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/groups">
+  <ion-tab title="Groups" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/groups">
     <ion-nav-view name="tab-groups"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab title="Streaming Services" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+  <ion-tab title="Streaming Services" icon-off="ion-ios-toggle-outline" icon-on="ion-ios-toggle" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Settings Tab -->
+  <ion-tab title="Account Settings" icon-off="ion-ios-cog-outline" icon-on="ion-ios-cog" href="#/tab/settings">
+    <ion-nav-view name="tab-settings"></ion-nav-view>
   </ion-tab>
 
   <!-- Create Queue Tab -->

@@ -2,6 +2,8 @@ angular.module('Tutti.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
+.controller('NowPlayingCtrl', function($scope) {})
+
 .controller('QueuesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $timeout, Queues) {
   //$scope.$on('$ionicView.enter', function(e) {
   //});
@@ -50,7 +52,7 @@ angular.module('Tutti.controllers', [])
 
   $rootScope.settings = {
     settingOne: false,
-    settingTwo: true,
+    settingTwo: false,
     settingThree: false
   };
   $scope.add = function() {
@@ -110,7 +112,7 @@ angular.module('Tutti.controllers', [])
 
   $rootScope.settings = {
     groupSettingOne: false,
-    groupSettingTwo: true,
+    groupSettingTwo: false,
     groupSettingThree: false
   };
   $scope.addGroup = function() {
@@ -119,12 +121,49 @@ angular.module('Tutti.controllers', [])
   };
 })
 
-.controller('GroupDetailCtrl', function($scope, $stateParams, Groups) {
+.controller('GroupDetailCtrl', function($scope, $rootScope, $stateParams, $ionicPopup, Groups) {
   $scope.group = Groups.getGroup($stateParams.groupId);
+
+  $scope.remove = function(member) {
+    Groups.removeMember($scope.group, member);
+  }
+  $scope.showPopup = function() {
+    $rootScope.data = {}
+    var myPopup = $ionicPopup.show({
+        template: '<input type="text" ng-model="data.username">',
+        title: 'Enter Username',
+        scope: $rootScope,
+        buttons: [
+          { text: 'Cancel' },
+          {
+            text: '<b>Add</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              //don't allow the user to hit save unless there is a name entered
+              if ($rootScope.data.username == undefined) {
+                e.preventDefault();
+              } else {
+                // $state.go('tab.create-group');
+                // return $rootScope.data.newName;
+                Groups.addMember($scope.group, $rootScope.data.username);
+              }
+            }
+          },
+        ]
+      });
+    myPopup.then(function(res) {
+      console.log('Name Received!', res);
+    });
+  };
 })
+
+.controller('SettingsCtrl', function($scope) {})
 
 .controller('AccountCtrl', function($scope) {
   $scope.services = {
-    soundCloud: true
+    soundCloud: false,
+    spotify: false,
+    appleMusic: false,
+    youtubeMusic: false
   };
 });

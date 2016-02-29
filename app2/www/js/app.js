@@ -33,6 +33,15 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
       }
     }
   })
+  .state('tab.now-playing', {
+    url: '/nowPlaying',
+    views: {
+      'tab-now-playing': {
+        templateUrl: 'templates/tab-now-playing.html',
+        controller: 'NowPlayingCtrl'
+      }
+    }
+  })
   .state('tab.queues', {
     url: '/queues',
     views: {
@@ -69,6 +78,15 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
       }
     }
   })
+  .state('tab.settings', {
+    url: '/settings',
+    views: {
+      'tab-settings': {
+        templateUrl: 'templates/tab-settings.html',
+        controller: 'SettingsCtrl'
+      }
+    }
+  })
   .state('tab.create-queue', {
     url: '/queues/createQueue',
     views: {
@@ -87,9 +105,18 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
       }
     }
   })
+  .state('tab.group-detail', {
+    url: '/groups/:groupId',
+    views: {
+      'tab-groups': {
+        templateUrl: 'templates/group-detail.html',
+        controller: 'GroupDetailCtrl'
+      }
+    }
+  })
   ;
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/queues');
 
 }]);

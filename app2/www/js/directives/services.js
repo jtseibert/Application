@@ -50,14 +50,30 @@ angular.module('Tutti.services', [])
     },
     addGroup: function(name, one, two, three) {
       groups.splice(groups.length, 0, {
+        // id: idCount2,
+        // name: (name),
+        // settingOne: one,
+        // settingTwo: two,
+        // settingThree: three,
+        // face: 'img/musicNote.jpg'
+
+        // Attempt at new Group settings
         id: idCount2,
-        name: (name),
+        name:(name),
         settingOne: one,
         settingTwo: two,
         settingThree: three,
-        face: 'img/musicNote.jpg'
+        face: 'img/musicNote.jpg',
+        members: []
       });
       idCount2++;
+    },
+    addMember: function(group, name) {
+      group.members.splice(0, 0, name);
+    },
+    removeMember: function(group, name) {
+      // group.members.splice(groups.members.indexOf(name), 1);
+      group.members.splice(group.members.indexOf(name), 1);
     },
     getGroup: function(groupId) {
       for (var i = 0; i < groups.length; i++) {
