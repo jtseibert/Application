@@ -2,7 +2,14 @@ angular.module('Tutti.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('NowPlayingCtrl', function($scope) {})
+.controller('NowPlayingCtrl', function($scope) {
+  // First attempt at SoundCloud API
+  // var SC = 
+  // SC.initialize({
+  //   client_id: '333ef2b6cd731d21245af1e242cfeaf6',
+  //   requireedirect_uri: 'http://localhost:8100/#/tab/account'
+  // });
+})
 
 .controller('QueuesCtrl', function($scope, $rootScope, $stateParams, $state, $ionicPopup, $timeout, Queues) {
   //$scope.$on('$ionicView.enter', function(e) {

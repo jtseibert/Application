@@ -1,4 +1,4 @@
-var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services'])
+var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.services','plangular'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -16,7 +16,7 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
   });
 })
 
-.config(['$stateProvider', '$rootScopeProvider', '$urlRouterProvider', function($stateProvider, $rootScopeProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$rootScopeProvider', '$urlRouterProvider', function($stateProvider, $rootScopeProvider, $urlRouterProvider, plangularConfigProvider) {
 
   $stateProvider
   .state('tab', {
@@ -119,4 +119,8 @@ var Tutti = angular.module('Tutti', ['ionic', 'Tutti.controllers', 'Tutti.servic
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/queues');
 
+
+  // initialize soundcloud
+  plangularConfigProvider.clientId = '333ef2b6cd731d21245af1e242cfeaf6';
+  
 }]);
